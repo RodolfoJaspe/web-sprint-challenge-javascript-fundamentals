@@ -84,9 +84,9 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 function animals(array) {
-  const lowCaseAnimalNames = array.map(function (animal) {
-    return animal.animal_name.toLowerCase();
-  });
+  const lowCaseAnimalNames = array.map((animal) =>
+    animal.animal_name.toLowerCase()
+  );
   return lowCaseAnimalNames;
 }
 console.group(animals(zooAnimals));
@@ -96,9 +96,9 @@ console.group(animals(zooAnimals));
 // The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 // */
-const lowPopulationAnimals = zooAnimals.filter(function (animal) {
-  return animal.population < 5;
-});
+const lowPopulationAnimals = zooAnimals.filter(
+  (animal) => animal.population < 5
+);
 console.log(lowPopulationAnimals);
 
 // /* Request 4: .reduce()
@@ -108,9 +108,7 @@ console.log(lowPopulationAnimals);
 // */
 
 let populationTotal = 0;
-populationTotal = zooAnimals.reduce(function (curr, next) {
-  return curr + next.population;
-}, 0);
+populationTotal = zooAnimals.reduce((curr, next) => curr + next.population, 0);
 console.log(populationTotal);
 
 // // ==== Callbacks ====
@@ -130,17 +128,16 @@ function consume(a, b, cb) {
 //   * Create a function named multiply that returns the product of two numbers
 //   * Create a function named greeting that accepts a first and last name and returns "Hello first-name last-name, nice to meet you!"
 // */
-function add(a, b) {
-  return a + b;
-}
 
-function multiply(a, b) {
-  return a * b;
-}
+add = (a, b) => a + b;
 
-function greeting(firstN, lastN) {
-  return `Hello ${firstN} ${lastN}, nice to meet you!`;
-}
+// function add(a, b) {
+//   return a + b;
+// }
+
+multiply = (a, b) => a * b;
+
+greeting = (firstN, lastN) => `Hello ${firstN} ${lastN}, nice to meet you!`;
 // /* Step 3: Check your work by un-commenting the following calls to consume(): */
 console.log(consume(2, 2, add)); // 4
 console.log(consume(10, 16, multiply)); // 160
